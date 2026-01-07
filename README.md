@@ -1,1 +1,1 @@
-Project for Colin & Noah DGM6405
+Project for Colin & Noah DGM6405 Game Development
