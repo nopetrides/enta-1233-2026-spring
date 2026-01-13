@@ -1,2 +1,1 @@
-# enta-1233-2026-spring
-1233 Starting point
+Project for Colin & Noah DGM6405 Game Development
