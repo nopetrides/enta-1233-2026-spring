@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
 	
 	private void AnimationParameters()
 	{
-		_animator.SetFloat(
+		_animator?.SetFloat(
 			Speed, _moveInput.sqrMagnitude);
 	}
 	
