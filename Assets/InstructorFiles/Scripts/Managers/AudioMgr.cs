@@ -136,23 +136,23 @@ public class AudioMgr : Singleton<AudioMgr>
     
         PlayMusic(_reusableMusicClips[(int) music], volumeMod);
     }
-    
-    /// <summary>
-    /// Play a looping music by passing the audio clip
-    /// </summary>
-    /// <param name="clip"></param>
-    /// <param name="volumeMod"></param>
-    [UsedImplicitly] // Use when appropriate
-    public void PlayMusic(AudioClip clip, float volumeMod)
-    {
-        if (volumeMod <= 0f) return;
-        MusicPlayer.clip = clip;
-        MusicPlayer.volume = volumeMod;
-        MusicPlayer.loop = true;
-        MusicPlayer.Play();
-    }
-    
-    /// <summary>
+
+	/// <summary>
+	/// Play a looping music by passing the audio clip
+	/// </summary>
+	/// <param name="clip"></param>
+	/// <param name="volumeMod"></param>
+	[UsedImplicitly] // Use when appropriate
+	public void PlayMusic(AudioClip clip, float volumeMod)
+	{
+		if (volumeMod <= 0f) return;
+		MusicPlayer.clip = clip;
+		MusicPlayer.volume = volumeMod;
+		MusicPlayer.loop = true;
+		MusicPlayer.Play();
+	}
+
+	/// <summary>
     /// Pause the music player
     /// Probably should be used during gameplay
     /// But maybe pause menu if there is no pause music?
@@ -210,15 +210,15 @@ public class AudioMgr : Singleton<AudioMgr>
     
         PlaySound(_reusableSoundClips[(int) sound], volumeMod);
     }
-    
-    /// <summary>
-    /// Play a sound clip by passing it directly
-    /// </summary>
-    /// <param name="clip"></param>
-    /// <param name="volumeMod"></param>
-    public void PlaySound(AudioClip clip, float volumeMod = 1f)
-    {
-        if (volumeMod <= 0f) return;
-        if (clip != null) SfxPlayer.PlayOneShot(clip, volumeMod);
-    }
+
+	/// <summary>
+	/// Play a sound clip by passing it directly
+	/// </summary>
+	/// <param name="clip"></param>
+	/// <param name="volumeMod"></param>
+	public void PlaySound(AudioClip clip, float volumeMod = 1f)
+	{
+		if (volumeMod <= 0f) return;
+		if (clip != null) SfxPlayer.PlayOneShot(clip, volumeMod);
+	}
 }

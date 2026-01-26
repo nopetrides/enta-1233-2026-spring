@@ -8,27 +8,30 @@ using UnityEngine.Serialization;
 /// </summary>
 /// <typeparam name="TSingletonClass"></typeparam>
 public abstract class Singleton<TSingletonClass> : MonoBehaviour where TSingletonClass : MonoBehaviour
-{
-    [SerializeField] private bool _willNotDestroyOnLoad;
-    public static TSingletonClass Instance { get; private set; }
+{ 
+	public static TSingletonClass Instance { get; private set; }
 
-    public virtual void Awake()
-    {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
+	
+	
+	[SerializeField] private bool _willNotDestroyOnLoad;
 
-        Instance = this as TSingletonClass;
-        
-        if (_willNotDestroyOnLoad)
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-    }
+	public virtual void Awake()
+	{
+		if (Instance != null)
+		{
+			Destroy(gameObject);
+			return;
+		}
 
-    void OnApplicationQuit()
+		Instance = this as TSingletonClass;
+
+		if (_willNotDestroyOnLoad)
+		{
+			DontDestroyOnLoad(gameObject);
+		}
+	}
+
+	void OnApplicationQuit()
     {
         Destroy(gameObject);
         Instance = null;

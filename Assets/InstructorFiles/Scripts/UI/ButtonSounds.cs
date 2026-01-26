@@ -46,19 +46,19 @@ public class ButtonSounds : MonoBehaviour
         PlayClickSound(_clickSound);
     }
 
-    /// <summary>
-    /// Override for Buttons
-    /// </summary>
-    private void PlayClickSound()
-    {
-        if (_clickSound != null)
-            AudioMgr.Instance.PlaySound(_clickSound);
-        else
-            AudioMgr.Instance.PlaySound(AudioMgr.SoundTypes.ButtonSelect);
-    }
+	/// <summary>
+	/// Override for Buttons
+	/// </summary>
+	private void PlayClickSound()
+	{
+		if (_clickSound != null)
+			AudioMgr.Instance.PlaySound(_clickSound);
+		else
+			AudioMgr.Instance.PlaySound(AudioMgr.SoundTypes.ButtonSelect);
+	}
 
 
-    /// <summary>
+	/// <summary>
     ///     Should be called from OnPointerEnter or OnSelected
     /// </summary>
     public void PlayHoverSound()

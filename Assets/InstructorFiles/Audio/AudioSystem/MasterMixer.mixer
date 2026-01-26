@@ -14,6 +14,25 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &-3919576587564295892
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Footsteps
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 35670ea271eccf94a8d48b87dd8cb2fb
+  m_Children: []
+  m_Volume: 360e5b587771c8d48ab8e13820083514
+  m_Pitch: a9fd4d8e40d6aef44b282753feb67408
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 7924240113580399497}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &-3604748493470333613
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -64,7 +83,8 @@ AudioMixerGroupController:
   m_Name: Sound
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: d0d11369ff20642198a2d8ecb9db7693
-  m_Children: []
+  m_Children:
+  - {fileID: -3919576587564295892}
   m_Volume: bd57178483ca240709dbd4918d0f9bfd
   m_Pitch: 2cdd5159eb878480d8cf530cca1e779f
   m_Send: 00000000000000000000000000000000
@@ -101,6 +121,7 @@ AudioMixerController:
     - 16a6cdcd80bd94282987bdbcf0acf3d3
     - d0d11369ff20642198a2d8ecb9db7693
     - e50ec3797535f4a269c79c29a46018bb
+    - 35670ea271eccf94a8d48b87dd8cb2fb
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -160,6 +181,20 @@ AudioMixerEffectController:
   m_EffectID: 2d2f2f65cd6064bc1b1fa92f4958d786
   m_EffectName: Attenuation
   m_MixLevel: e26629ff26ec844efb9d911f9e8dd953
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &7924240113580399497
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 5c419575497c64e4fb7e00b4c3d89acb
+  m_EffectName: Attenuation
+  m_MixLevel: bedf74e08e9e22e47ac298be657018c6
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
