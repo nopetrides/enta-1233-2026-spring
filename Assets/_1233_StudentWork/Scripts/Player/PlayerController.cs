@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
 		_numberOfJumps++;
 		_gravityVelocity = _jumpStrength;
 		_isGrounded = false;
+		_jump = true;
 	}
 
 	/// <summary>
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
 		Gravity();
 		Rotate();
 		Move();
+		GroundCheck();
 		AnimationParameters();
 	}
 
@@ -108,11 +110,17 @@ public class PlayerController : MonoBehaviour
 	
 	private static readonly int Speed = 
 		Animator.StringToHash("Speed");
+	private static readonly int Grounded = 
+		Animator.StringToHash("Grounded");
+	private static readonly int Jump = 
+		Animator.StringToHash("Jump");
 	
 	private void AnimationParameters()
 	{
 		_animator?.SetFloat(
 			Speed, _moveInput.sqrMagnitude);
+		_animator?.SetBool(Jump, _jump);
+		_jump = false;
+		_animator?.SetBool(Grounded, _isGrounded);
 	}
-	
 }
