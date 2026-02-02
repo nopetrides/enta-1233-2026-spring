@@ -72,12 +72,13 @@ public class GameMgr : Singleton<GameMgr>
         SceneMgr.Instance.LoadScene(GameScenes.GameOver, GameMenus.GameOverMenu);
     }
 
-    public void NextLevel()
-    {
-        throw new NotImplementedException("No next level logic");
-    }
+	public void NextLevel()
+	{
+		IsGameRunning = false;
+		SceneMgr.Instance.LoadScene(GameScenes.GameOver, GameMenus.LevelCompleteMenu);
+	}
 
-    /// <summary>
+	/// <summary>
     /// Toggle the game state
     /// </summary>
     public void PauseGameToggle()
