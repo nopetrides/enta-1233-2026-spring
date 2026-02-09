@@ -105,8 +105,8 @@ public class MenuBase : MonoBehaviour
 	}
 
 	public void Fade(
-		float targetAlpha, 
-		float duration, 
+		float targetAlpha,
+		float duration,
 		Action onComplete = null)
 	{
 		if (_fadeRoutine != null)

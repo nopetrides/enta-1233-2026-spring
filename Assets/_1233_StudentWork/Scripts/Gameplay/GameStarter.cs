@@ -7,6 +7,7 @@ public class GameStarter : MonoBehaviour
 	{
 		StartCoroutine(StartWhenReady());
 	}
+
 	private IEnumerator StartWhenReady()
 	{
 		Debug.Log("GameStarter: Requesting level load");
@@ -16,7 +17,7 @@ public class GameStarter : MonoBehaviour
 		yield return new WaitUntil(() => LevelMgr.Instance.IsLevelLoaded);
 
 		Debug.Log("GameStarter: Spawning player");
-		PlayerSpawnPoint spawnPoint = PlayerSpawnPoint.Instance;
+		var spawnPoint = PlayerSpawnPoint.Instance;
 		if (spawnPoint == null)
 			Debug.LogError("GameStarter: No spawn point found!");
 		else
@@ -36,5 +37,4 @@ public class GameStarter : MonoBehaviour
 
 		GameMgr.Instance.StartGame();
 	}
-
 }

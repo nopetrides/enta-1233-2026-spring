@@ -1,19 +1,15 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 /// <summary>
-/// Base class for singleton pattern
-/// Note that not all singletons are automatically marked as DontDestroyOnLoad
-/// Each script must be marked as such
+///     Base class for singleton pattern
+///     Note that not all singletons are automatically marked as DontDestroyOnLoad
+///     Each script must be marked as such
 /// </summary>
 /// <typeparam name="TSingletonClass"></typeparam>
 public abstract class Singleton<TSingletonClass> : MonoBehaviour where TSingletonClass : MonoBehaviour
-{ 
-	public static TSingletonClass Instance { get; private set; }
-
-	
-	
+{
 	[SerializeField] private bool _willNotDestroyOnLoad;
+	public static TSingletonClass Instance { get; private set; }
 
 	public virtual void Awake()
 	{
@@ -25,15 +21,12 @@ public abstract class Singleton<TSingletonClass> : MonoBehaviour where TSingleto
 
 		Instance = this as TSingletonClass;
 
-		if (_willNotDestroyOnLoad)
-		{
-			DontDestroyOnLoad(gameObject);
-		}
+		if (_willNotDestroyOnLoad) DontDestroyOnLoad(gameObject);
 	}
 
-	void OnApplicationQuit()
-    {
-        Destroy(gameObject);
-        Instance = null;
-    }
+	private void OnApplicationQuit()
+	{
+		Destroy(gameObject);
+		Instance = null;
+	}
 }
