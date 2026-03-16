@@ -10,6 +10,14 @@ public class Projectile : MonoBehaviour
 	[SerializeField] private float _speed = 20f;
 	[SerializeField] private float _lifetime = 5f;
 	[SerializeField] private bool _useGravity;
+#region Particle
+	[SerializeField] private GameObject _impactVfxPrefab;
+	
+	void SpawnImpact(Vector3 position) 
+	{
+		Instantiate(_impactVfxPrefab, position, Quaternion.identity); 
+	}
+#endregion
 
 	private Rigidbody _rb;
 	private GameObject _source;
@@ -39,6 +47,7 @@ public class Projectile : MonoBehaviour
 			damageReceiver.ApplyDamage(info);
 		}
 
+		SpawnImpact(collision.contacts[0].point);
 		// Destroy on impact
 		Destroy(gameObject);
 	}
