@@ -23,6 +23,10 @@ public class SceneMgr : Singleton<SceneMgr>
         
         yield return new WaitWhile(() => waiting);
 
+        foreach ( Player player in PlayerService.Instance.GetPlayers() ) {
+            player.DespawnCharacter();
+        }
+
         var asyncOperation = SceneManager.LoadSceneAsync(sceneToLoad.ToString());
 
         while (asyncOperation is {isDone: false}) yield return null;

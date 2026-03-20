@@ -10,5 +10,7 @@ public enum GameMenus
     MainMenu,
     SettingsMenu,
     InGameUI,
-    GameOverMenu
+    GameOverMenu,
+    LevelCompleteMenu,
+    GameWinMenu,
 }
