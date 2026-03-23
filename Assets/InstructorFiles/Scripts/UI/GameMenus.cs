@@ -8,6 +8,7 @@ public enum GameMenus
     Fader,
     Splash,
     MainMenu,
+    LevelSelectMenu,
     SettingsMenu,
     InGameUI,
     GameOverMenu,

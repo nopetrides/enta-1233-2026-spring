@@ -3,51 +3,51 @@ using UnityEngine.UI;
 
 public class ButtonSounds : MonoBehaviour
 {
-    [Header("Only one needs to be assigned")]
-    [SerializeField] private Button _button;
-    [SerializeField] private Toggle _toggle;
-    [SerializeField] private Slider _slider;
-    
-    [Header("Optional sound overrides, otherwise uses AudioMgr.SoundTypes")]
-    [SerializeField] private AudioClip _clickSound;
-    [SerializeField] private AudioClip _hoverSound;
+	[Header("Only one needs to be assigned")]
+	[SerializeField] private Button _button;
+	[SerializeField] private Toggle _toggle;
+	[SerializeField] private Slider _slider;
 
-    /// <summary>
-    /// Called once
-    /// </summary>
-    private void Start()
-    {
-        if (_button) _button.onClick.AddListener(PlayClickSound);
-
-        if (_toggle) _toggle.onValueChanged.AddListener(PlayClickSound);
-
-        if (_slider) _slider.onValueChanged.AddListener(PlayClickSound);
-    }
-
-    /// <summary>
-    /// Override for Toggles
-    /// </summary>
-    /// <param name="state"></param>
-    private void PlayClickSound(bool state)
-    {
-        // Ensures only one toggle in a group plays a sound
-        if (!_toggle) return;
-        if (!state && _toggle.group && _toggle.group.AnyTogglesOn()) return;
-
-        PlayClickSound(_clickSound);
-    }
-
-    /// <summary>
-    /// Override for Sliders
-    /// </summary>
-    /// <param name="_"></param>
-    private void PlayClickSound(float _)
-    {
-        PlayClickSound(_clickSound);
-    }
+	[Header("Optional sound overrides, otherwise uses AudioMgr.SoundTypes")]
+	[SerializeField] private AudioClip _clickSound;
+	[SerializeField] private AudioClip _hoverSound;
 
 	/// <summary>
-	/// Override for Buttons
+	///     Called once
+	/// </summary>
+	private void Start()
+	{
+		if (_button) _button.onClick.AddListener(PlayClickSound);
+
+		if (_toggle) _toggle.onValueChanged.AddListener(PlayClickSound);
+
+		if (_slider) _slider.onValueChanged.AddListener(PlayClickSound);
+	}
+
+	/// <summary>
+	///     Override for Toggles
+	/// </summary>
+	/// <param name="state"></param>
+	private void PlayClickSound(bool state)
+	{
+		// Ensures only one toggle in a group plays a sound
+		if (!_toggle) return;
+		if (!state && _toggle.group && _toggle.group.AnyTogglesOn()) return;
+
+		PlayClickSound(_clickSound);
+	}
+
+	/// <summary>
+	///     Override for Sliders
+	/// </summary>
+	/// <param name="_"></param>
+	private void PlayClickSound(float _)
+	{
+		PlayClickSound(_clickSound);
+	}
+
+	/// <summary>
+	///     Override for Buttons
 	/// </summary>
 	private void PlayClickSound()
 	{
@@ -59,13 +59,13 @@ public class ButtonSounds : MonoBehaviour
 
 
 	/// <summary>
-    ///     Should be called from OnPointerEnter or OnSelected
-    /// </summary>
-    public void PlayHoverSound()
-    {
-        if (_hoverSound != null)
-            AudioMgr.Instance.PlaySound(_hoverSound);
-        else
-            AudioMgr.Instance.PlaySound(AudioMgr.SoundTypes.ButtonHover);
-    }
+	///     Should be called from OnPointerEnter or OnSelected
+	/// </summary>
+	public void PlayHoverSound()
+	{
+		if (_hoverSound != null)
+			AudioMgr.Instance.PlaySound(_hoverSound);
+		else
+			AudioMgr.Instance.PlaySound(AudioMgr.SoundTypes.ButtonHover);
+	}
 }
